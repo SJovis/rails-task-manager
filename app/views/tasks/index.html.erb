@@ -4,17 +4,20 @@
   </ol>
 </nav>
 
-
 <div class="list-group mb-2">
   <% @tasks.each do |task| %>
     <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-    <div class='flex-shrink-1'>
-    <%= task.completed ? '<i class="far fa-check-square text-dark"></i>'.html_safe : '<i class="far fa-square text-dark"></i>'.html_safe %>
-    <%= link_to task.title, task_path(task.id), class: 'text-decoration-none ml-2' %>
-    </div>
+      <div class='flex-shrink-1'>
+        <% if task.completed %>
+          <i class="far fa-check-square text-dark"></i>
+        <% else %>
+          <i class="far fa-square text-dark"></i>
+        <% end %>
+        <%= link_to task.title, task_path(task.id), class: 'text-decoration-none ml-2' %>
+      </div>
       <%= link_to(task_path(task.id),
-            method: :delete,
-            data: { confirm: "Are you sure?" }, class: 'text-decoration-none text-black-50') do %>
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: 'text-decoration-none text-black-50') do %>
         <i class="fas fa-trash"></i>
       <% end %>
     </div>
