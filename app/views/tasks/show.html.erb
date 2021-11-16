@@ -10,14 +10,13 @@
     <h5 class="card-title"><%= @task.title %></h5>
     <p class="card-text"><%= @task.details %></p>
     <% if @task.completed %>
-    <div class="d-flex align-items-center alert-success p-2">
-      <i class="far fa-check-square text-dark mr-2"></i><p class="mb-0">Task completed.</p>
-    </div>
-    <% end %>
-    <% if @task.completed == false %>
-    <div class="d-flex align-items-center alert-warning p-2">
-      <i class="far fa-square text-dark mr-2"></i><p class="mb-0">Task not yet completed.</p>
-    </div>
+      <div class="d-flex align-items-center alert-success p-2">
+        <i class="far fa-check-square text-dark mr-2"></i><p class="mb-0">Task completed.</p>
+      </div>
+    <% else %>
+      <div class="d-flex align-items-center alert-warning p-2">
+        <i class="far fa-square text-dark mr-2"></i><p class="mb-0">Task not yet completed.</p>
+      </div>
     <% end %>
   </div>
 </div>
