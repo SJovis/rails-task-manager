@@ -1,0 +1,30 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <%= link_to "Tasks", tasks_path, class: "breadcrumb-item" %>
+    <li class="breadcrumb-item active" aria-current="page"><%= @task.title %></li>
+  </ol>
+</nav>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @task.title %></h5>
+    <p class="card-text"><%= @task.details %></p>
+    <% if @task.completed %>
+    <div class="d-flex align-items-center alert-success p-2">
+      <i class="far fa-check-square text-dark mr-2"></i><p class="mb-0">Task completed.</p>
+    </div>
+    <% end %>
+    <% if @task.completed == false %>
+    <div class="d-flex align-items-center alert-warning p-2">
+      <i class="far fa-square text-dark mr-2"></i><p class="mb-0">Task not yet completed.</p>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_task_path(@task.id), class: "btn btn-primary mt-2" %>
+<%= link_to 'Delete',
+            task_path(@task),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-outline-primary mt-2" %>

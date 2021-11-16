@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <%= link_to "Tasks", tasks_path, class: "breadcrumb-item" %>
+    <%= link_to @task.title, task_path(@task.id), class: "breadcrumb-item" %>
+    <li class="breadcrumb-item active" aria-current="page">Edit Task</li>
+  </ol>
+</nav>
+<%= render "form", task: @task %>
